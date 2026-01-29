@@ -14,7 +14,7 @@
 [![Font Awesome](https://img.shields.io/badge/Font_Awesome-339AF0?style=flat-square&logo=fontawesome&logoColor=white)](https://fontawesome.com)
 [![Google Fonts](https://img.shields.io/badge/Google_Fonts-4285F4?style=flat-square&logo=googlefonts&logoColor=white)](https://fonts.google.com)
 
-🚀 **Live Demo**: [Try it Now!](#) *(Add your deployment link here)*
+🚀 **Live Demo**: [Try it Now!](#https://blackst4rez.github.io/Palette-Generator/)
 
 </div>
 
@@ -89,10 +89,10 @@
 ### Method 2: Local Server
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/color-palette-generator.git
+git clone https://github.com/blackST4Rez/Palette-Generator.git
 
 # Navigate to project directory
-cd color-palette-generator
+cd Palette-Generator
 
 # Open in browser (on macOS)
 open index.html
