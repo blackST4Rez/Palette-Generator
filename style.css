@@ -1,0 +1,299 @@
+/* Basic Reset */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Playfair Display";
+}
+
+body{
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: black;
+    /* Prevent scroll during initial animation */
+    overflow: hidden;
+}
+
+/* Add fade-in animation for the entire page */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add color wave animation for background */
+@keyframes colorWave {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Subtle animated background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #f5f7fa, #c3cfe2, #e0eafc, #f5f7fa);
+    background-size: 400% 400%;
+    animation: colorWave 15s ease infinite;
+    z-index: -1;
+    opacity: 0;
+    animation-delay: 0.5s;
+}
+
+body.loaded::before {
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
+}
+
+.container{
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    /* Initial state for animation */
+    opacity: 0;
+    transform: translateY(30px);
+    /* Animation properties */
+    animation: fadeIn 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+    /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    position: relative;
+    font-size: 100px;
+    /* Animation for title */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+h1::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #08f37d, #37346F);
+    border-radius: 2px;
+    /* Animate the underline */
+    animation: expandWidth 1.2s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes expandWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 50%;
+    }
+}
+
+#generate-btn{
+    background: linear-gradient(-135deg, #bdf8da, #08f37d );
+    color: black;
+    border: none;
+    border-radius: 50px;
+    padding: 2rem 4rem;
+    cursor: crosshair;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1.5s;   
+}
+
+#generate-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(8, 243, 125, 0.4);
+}
+
+#generate-btn:active{
+    transform: translateY(0) scale(0.98);
+}
+
+.palette-container{
+    display: grid;
+    gap: 2rem;  
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    /* Animation for palette container */
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1.5s;    
+}
+
+.color-box{
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    transition: all 0.4s ease-in-out;
+    /* Staggered animation for color boxes */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Staggered animation delays for each color box */
+.color-box:nth-child(1) { animation-delay: 1.6s; }
+.color-box:nth-child(2) { animation-delay: 1.7s; }
+.color-box:nth-child(3) { animation-delay: 1.8s; }
+.color-box:nth-child(4) { animation-delay: 1.9s; }
+.color-box:nth-child(5) { animation-delay: 2.0s; }
+
+.color-box:hover{
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.color{
+    height: 200px;
+    cursor: crosshair;
+    /* Smooth transition for color changes */
+    transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Make sure colors blend nicely */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add a subtle gradient overlay for better visual */
+.color::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.1) 100%);
+    pointer-events: none;
+}
+
+.color-info{
+    background-color: #fff;
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.hex-value{
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-size: 25px;
+    /* Animation for hex values */
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 2.1s;
+}
+
+.far fa-copy copy-btn{
+    width: 55px;
+    height: 15px;
+}
+
+.copy-btn{
+    cursor: pointer;
+    color: #bfe0f1;
+    transition: all 0.3s ease;
+    /* Animation for copy buttons */
+    opacity: 0;
+    transform: rotate(-180deg);
+    animation: fadeInRotate 0.8s ease-out forwards;
+    animation-delay: 2.2s;
+}
+
+@keyframes fadeInRotate {
+    from {
+        opacity: 0;
+        transform: rotate(-180deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+.copy-btn:hover{
+    color: #106fdc;
+    transform: scale(1.2) rotate(5deg);
+}
+
+@media(max-width: 768px) {
+    .palette-container{   
+        grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+    }
+    
+    h1 {
+        font-size: 60px;
+    }
+    
+    #generate-btn {
+        padding: 1.5rem 3rem;
+        font-size: 1.5rem;
+    }
+}
+
+/* Add animation for new palette generation */
+@keyframes colorPop {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    }
+}
+
+.color-updated {
+    animation: colorPop 0.6s ease-out;
+}
+
+/* Gradient fade effect for the color palette */
+.color-box:nth-child(1) .color {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.color-box:nth-child(5) .color {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
