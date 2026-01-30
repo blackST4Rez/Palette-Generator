@@ -65,7 +65,7 @@ function generateRandomColor() {
 // Generate 5 shades from dark to light based on a base HSL color
 function generateShades(baseHsl) {
     const shades = [];
-    const lightnessValues = [20, 35, 50, 65, 80]; // Dark to light percentages
+    const lightnessValues = [10, 20, 30, 40, 50, 60, 70, 80]; // Dark to light percentages
     
     for (let lightness of lightnessValues) {
         shades.push({

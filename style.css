@@ -92,7 +92,7 @@ h1{
     font-size: 100px;
     /* Animation for title */
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
     animation: fadeIn 1s ease-out forwards;
     animation-delay: 0.8s;
 }
@@ -122,6 +122,7 @@ h1::after{
 }
 
 #generate-btn{
+    font-size: 2rem;
     background: linear-gradient(-135deg, #bdf8da, #08f37d );
     color: black;
     border: none;
@@ -130,7 +131,6 @@ h1::after{
     cursor: crosshair;
     font-weight: 500;
     margin-bottom: 2rem;
-    font-size: 2rem;
     transition: all 0.4s ease-in-out;
     opacity: 0;
     animation: fadeIn 1s ease-out forwards;
@@ -173,6 +173,9 @@ h1::after{
 .color-box:nth-child(3) { animation-delay: 1.8s; }
 .color-box:nth-child(4) { animation-delay: 1.9s; }
 .color-box:nth-child(5) { animation-delay: 2.0s; }
+.color-box:nth-child(6) { animation-delay: 2.1s; }
+.color-box:nth-child(7) { animation-delay: 2.2s; }
+.color-box:nth-child(8) { animation-delay: 2.3s; }
 
 .color-box:hover{
     transform: translateY(-8px) scale(1.03);
