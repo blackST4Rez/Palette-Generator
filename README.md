@@ -25,7 +25,7 @@
 <td width="33%">
 
 ### 🎲 Smart Palette Generation
-- Creates 5 complementary shades from random base colors
+- Creates 8 complementary shades from random base colors
 - Uses HSL color space for harmonious results
 - Real-time color generation with smooth transitions
 
