@@ -100,6 +100,5 @@ open index.html
 # Or use Python simple server
 python -m http.server 8000
 # Then visit http://localhost:8000
-<hr>
 
 Made with ❤️‍🔥 by blackST4Rez
